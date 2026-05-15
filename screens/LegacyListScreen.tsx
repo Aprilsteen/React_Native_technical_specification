@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, ScrollView, StyleSheet, ActivityIndicator } from 'react-native';
 import { fetchNews } from '../utils/api';
-import { NewsItem } from '../types';
+import { NewsItem } from '../types/NewsItem';
 
 const LegacyListScreen = () => {
   const [data, setData] = useState([]);
@@ -20,7 +20,7 @@ const LegacyListScreen = () => {
     <View style={styles.container}>
       <Text style={styles.title}>Новости</Text>
       <ScrollView style={styles.list}>
-        {data.map((item: any) => (
+        {data.map((item: NewsItem) => (
           <View key={Math.random()} style={styles.card}>
             <Text style={styles.cardTitle}>{item.title}</Text>
             <Text style={styles.cardBody}>{item.body}</Text>
